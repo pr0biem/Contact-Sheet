@@ -10,7 +10,6 @@ class Contact
     @email = email
     @id = (File.open('contacts.csv', 'r').count + 1)
     contact_arr = [@id, @name, @email]
-    File.open('id.txt', "w") { |line| line.puts @id }
     CSV.open("contacts.csv", "a") do |new_contact|
       new_contact << contact_arr
     end
